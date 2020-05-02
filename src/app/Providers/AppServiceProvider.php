@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Providers;
+
+use Schema;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //Fix support for storing emojis MYSQL version v.5.7.7 lower.
+        Schema::defaultStringLength(191);
+    }
+}
